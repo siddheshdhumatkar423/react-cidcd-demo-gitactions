@@ -1,5 +1,5 @@
 import './App.css'
-
+// this is app component
 function App() {
 
   return (
