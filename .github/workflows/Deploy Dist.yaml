@@ -5,9 +5,26 @@ jobs:
         runs-on: ubuntu-latest
         steps:
             - name: Get Code
-              run: |
-                echo "Cloning repo"
-                echo "${{toJson(github)}}"
-                git clone https://github.com/${{github.repository}}.git myfiles
-                cd myfiles && ls
+              uses: actions/checkout@v4
+            #   run: |
+            #     echo "Cloning repo"
+            #     echo "${{toJson(github)}}"
+            #     git clone https://github.com/${{github.repository}}.git myfiles
+            #     cd myfiles && ls
+            - name: Setup Node js
+              uses: actions/setup-node@v4
+              with:
+                  node-version: 22
+            - name: Print Node version
+              run: echo node -v
+            - name: Install Dependencies
+              run: npm install
+            - name: Run Test cases
+              run: npm run test 
+            - name: Completed running test cases
+              run: echo "completed successfully"  
+
+
+
+
   
