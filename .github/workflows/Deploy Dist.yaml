@@ -22,6 +22,8 @@ jobs:
             #     cd myfiles && ls
             - name: Setup Node and install depencencies
               uses: ./.github/actions/setupnode
+              with: 
+                 node-version: 20
             - name: Run Tests
               run: npm run test   
     build:    
