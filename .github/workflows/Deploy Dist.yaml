@@ -20,11 +20,15 @@ jobs:
             #     echo "${{toJson(github)}}"
             #     git clone https://github.com/${{github.repository}}.git
             - name: Install Node 20
-             # - name: print node version
+              uses: actions/setup-node@v4
+              with: 
+                node-version: 20
+            # - name: print node version
             #   run: node -v
             - name: Cache Dependencies
               uses: actions/cache@v4
-              with: 
+               with:
+               
                 path: ~/.npm
                 key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
             - name: Install Dependencies
@@ -40,9 +44,6 @@ jobs:
           - name: Install Node 20
             uses: actions/setup-node@v4
             with: 
-              node-version: 20
-          - name: Cache Dependencies
-          uses: actions/cache@v4
             with: 
               path: ~/.npm
               key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
@@ -68,11 +69,5 @@ jobs:
                 path: dist
             - name: Deploy
               run: echo "Deploy successfull"  
-
-
-
-             
-
-
 
 
