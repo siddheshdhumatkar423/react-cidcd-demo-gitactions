@@ -4,10 +4,8 @@ on:
     push:
         branches:
             - main
-            - 'feature/**'
-        paths-ignore:
-            - '.github/workflows/*'  
-            - README.md  
+            
+       
             
 jobs:
     test:
